@@ -1,13 +1,11 @@
 import React from 'react';
 import HornedBeast from './hornedbeast.js';
+import beastArray from './data.js';
 
 class Main extends React.Component {
   render() {
     return(
-      <div>
-        <HornedBeast />
-        <HornedBeast />
-      </div>
+      beastArray.forEach(element => <HornedBeast title='' image_url='' description=''/>)
     )
   }
 }
