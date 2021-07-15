@@ -9,8 +9,8 @@ import Col from 'react-bootstrap/Col';
 class Main extends React.Component {
   render() {
     return(
-      <Row xs={1} xs={2} className="g-4">
-      {Array.from({ length: 1 }).map((_, idx) => (
+      <Row xs={1} xs={1} className="g-4">
+      {Array.from({ length: 3 }).map((_, idx) => (
       <Col>
       {beastArray.map(element => <HornedBeast key={idx} title={element.title} description={element.description} image_url={element.image_url} />
       )}
@@ -21,5 +21,6 @@ class Main extends React.Component {
   }
 }
 
+//TODO stop repeat images
 
 export default Main;
