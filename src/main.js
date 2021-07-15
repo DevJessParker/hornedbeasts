@@ -6,7 +6,15 @@ import beastArray from './data.js';
 import Col from 'react-bootstrap/Col';
 
 
+
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalClick: false,
+    }
+  }
+
   render() {
     return(
       <Row xs={1} xs={4} className="g-4">
