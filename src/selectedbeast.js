@@ -1,32 +1,37 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from 'react-bootstrap/Modal';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 class SelectedBeast extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalClick: false
-    }
-  }
-
-  
   render () {
     return(
-    <div class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">{this.props.title}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>{this.props.description}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <Modal show={this.props.show} onHide={this.props.handleClose}>
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>{this.props.selectedBeast.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Card 
+              bg="dark"
+              text="light"
+              onClick={this.displayModal}
+            >
+              <Card.Img variant="top" alt={this.props.selectedBeast.title} src={this.props.selectedBeast.image_url} />
+              <Card.Body>
+                <Card.Title>{this.props.selectedBeast.title}</Card.Title>
+                <Card.Text>
+                  {this.props.selectedBeast.description}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Modal.Body>
+          <Modal.Footer>
+          <Button onClick={this.props.handleClose} variant="secondary">Close</Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+    </Modal>
     )
   }
 }
