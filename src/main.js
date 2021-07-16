@@ -18,7 +18,7 @@ class Main extends React.Component {
   render() {
     return(
       <Row xs={1} xs={4} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
+      {Array.from({ length: 1 }).map((_, idx) => (
       <Col>
       {beastArray.map(element => <HornedBeast key={idx} title={element.title} description={element.description} image_url={element.image_url} />
       )}
