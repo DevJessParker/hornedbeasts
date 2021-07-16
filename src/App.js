@@ -4,6 +4,7 @@ import Main from "./main.js";
 import Footer from "./footer.js";
 import beastArray from "./data.js";
 import SelectedBeast from "./selectedbeast.js";
+import HornFilter from "./form.js";
 
 
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
   render() {
     return(
     <div className="App">
+      <HornFilter />
       <Header />
       <Main
         allBeasts={this.state.allBeasts}
