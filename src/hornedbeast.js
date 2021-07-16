@@ -1,7 +1,7 @@
 import React from "react";
-import heartpic from "./Red-Heart.png";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-import SelectedBeast from "./selectedbeast.js"
+
 
 
 class HornedBeast extends React.Component {
@@ -13,25 +13,26 @@ constructor(props) {
 }
 
 addCounter = () => {
-  this.setState({favoriteCount: this.state.favoriteCount + 1})
+  this.setState({favoriteCount: this.state.favoriteCount + 1});
+  this.props.displayModal(this.props.title);
 }
 
-modalClickState = () => {
-  this.setState({modalClick: true})
-}
 
 render() {
   return(
-    <Card class="beastcard">
-    <Card.Img variant="top" src={this.props.image_url} alt='' onClick={this.addCounter} onClick={this.modalClickState}/>
+    <Card
+      style={{ width: '14rem' }}
+      bg="dark"
+      text="light"
+      onClick={this.addCounter}>
+    <Card.Img variant="top" src={this.props.image_url} />
     <Card.Body>
-    <Card.Img variant="top" src={heartpic} onClick={this.addCounter} />
     <Card.Title>{this.props.title}</Card.Title>
     <Card.Text>
     {this.props.description}
     </Card.Text>
     <Card.Text>
-    Favorites: {this.state.favoriteCount}
+    ❤️ Favorites: {this.state.favoriteCount}
     </Card.Text>
     </Card.Body>
     </Card>
